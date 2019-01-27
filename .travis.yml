@@ -1,7 +1,6 @@
-# Config file for automatic testing at travis-ci.org
-
 sudo: false
 language: python
+cache: pip
 
 matrix:
     include:
@@ -18,10 +17,3 @@ install:
 
 script:
   - tox -e $TOX_ENV
-
-before_cache:
-  - rm -rf $HOME/.cache/pip/log
-
-cache:
-  directories:
-    - $HOME/.cache/pip
