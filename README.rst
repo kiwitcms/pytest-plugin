@@ -14,6 +14,11 @@ kiwitcms-pytest-plugin
     :target: https://travis-ci.org/kiwitcms/pytest-plugin
     :alt: See Build Status on Travis CI
 
+.. image:: https://coveralls.io/repos/github/kiwitcms/pytest-plugin/badge.svg?branch=master
+    :target: https://coveralls.io/github/kiwitcms/pytest-plugin?branch=master
+    :alt: Code coverage
+
+
 Pytest plugin for Kiwi TCMS
 
 ----
