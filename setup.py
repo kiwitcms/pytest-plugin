@@ -14,7 +14,6 @@ setup(
     author_email="dadygalo@gmail.com",
     maintainer="Kiwi TCMS",
     maintainer_email="info@kiwitcms.org",
-    license="GNU GPL v3.0",
     url="https://github.com/kiwitcms/pytest-plugin",
     description="Pytest plugin for Kiwi TCMS test case management system",
     long_description=README,
