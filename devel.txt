@@ -3,3 +3,5 @@
 doc8
 flake8
 pylint_django
+twine
+wheel

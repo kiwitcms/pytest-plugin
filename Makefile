@@ -13,3 +13,7 @@ pylint:
 .PHONY: test
 test:
 	pytest --kiwitcms
+
+.PHONY: check-build
+check-build:
+	./tests/bin/check-build
