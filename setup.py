@@ -3,13 +3,14 @@
 # Copyright (c) 2019 Dmitry Dygalo <dadygalo@gmail.com>
 # Licensed under the GPLv3: https://www.gnu.org/licenses/gpl.html
 from setuptools import setup
+import tcms_pytest_plugin
 
 README = open("README.rst").read()
 REQUIREMENTS = open("requirements.txt").readlines()
 
 setup(
     name="kiwitcms-pytest-plugin",
-    version="0.1.0",
+    version=tcms_pytest_plugin.__version__,
     author="Dmitry Dygalo",
     author_email="dadygalo@gmail.com",
     maintainer="Kiwi TCMS",
@@ -38,5 +39,5 @@ setup(
         "Topic :: Software Development :: Quality Assurance",
         "Topic :: Software Development :: Testing",
     ],
-    entry_points={"pytest11": ["tcms_pytest_plugin = tcms_pytest_plugin"]},
+    entry_points={"pytest11": ["tcms_pytest_plugin = tcms_pytest_plugin.plugin"]},
 )
