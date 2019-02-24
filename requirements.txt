@@ -1,2 +1,2 @@
-pytest
+pytest==4.3.0
 tcms-api==5.2
