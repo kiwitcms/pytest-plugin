@@ -1,0 +1,4 @@
+requirements:
+  - requirements.txt:
+      update: all
+      pin: False
