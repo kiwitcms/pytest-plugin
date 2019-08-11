@@ -1,0 +1,272 @@
+interactions:
+- request:
+    body: '<?xml version=''1.0''?>
+
+      <methodCall>
+
+      <methodName>Auth.login</methodName>
+
+      <params>
+
+      <param>
+
+      <value><string>user</string></value>
+
+      </param>
+
+      <param>
+
+      <value><string>random</string></value>
+
+      </param>
+
+      </params>
+
+      </methodCall>
+
+'
+    headers:
+      Accept-Encoding:
+      - gzip
+      Content-Length:
+      - '214'
+      Content-Type:
+      - text/xml
+      User-Agent:
+      - Python-xmlrpc/3.6
+    method: POST
+    uri: http://another.com/xml-rpc/
+  response:
+    body:
+      string: ''
+    headers:
+      Content-Length:
+      - '0'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Sun, 31 Mar 2019 13:01:27 GMT
+      Location:
+      - https://another.com/xml-rpc/
+      Server:
+      - Apache/2.4.18 (Ubuntu)
+    status:
+      code: 301
+      message: Moved Permanently
+- request:
+    body: '<?xml version=''1.0''?>
+
+      <methodCall>
+
+      <methodName>Auth.login</methodName>
+
+      <params>
+
+      <param>
+
+      <value><string>user</string></value>
+
+      </param>
+
+      <param>
+
+      <value><string>random</string></value>
+
+      </param>
+
+      </params>
+
+      </methodCall>
+
+'
+    headers:
+      Accept-Encoding:
+      - gzip
+      Content-Length:
+      - '214'
+      Content-Type:
+      - text/xml
+      User-Agent:
+      - Python-xmlrpc/3.6
+    method: POST
+    uri: http://another.com/xml-rpc/
+  response:
+    body:
+      string: ''
+    headers:
+      Content-Length:
+      - '0'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Sun, 31 Mar 2019 13:01:27 GMT
+      Location:
+      - https://another.com/xml-rpc/
+      Server:
+      - Apache/2.4.18 (Ubuntu)
+    status:
+      code: 301
+      message: Moved Permanently
+- request:
+    body: '<?xml version=''1.0''?>
+
+      <methodCall>
+
+      <methodName>Auth.login</methodName>
+
+      <params>
+
+      <param>
+
+      <value><string>user</string></value>
+
+      </param>
+
+      <param>
+
+      <value><string>random</string></value>
+
+      </param>
+
+      </params>
+
+      </methodCall>
+
+'
+    headers:
+      Accept-Encoding:
+      - gzip
+      Content-Length:
+      - '214'
+      Content-Type:
+      - text/xml
+      User-Agent:
+      - Python-xmlrpc/3.6
+    method: POST
+    uri: http://another.com/xml-rpc/
+  response:
+    body:
+      string: ''
+    headers:
+      Content-Length:
+      - '0'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Sun, 31 Mar 2019 13:01:27 GMT
+      Location:
+      - https://another.com/xml-rpc/
+      Server:
+      - Apache/2.4.18 (Ubuntu)
+    status:
+      code: 301
+      message: Moved Permanently
+- request:
+    body: '<?xml version=''1.0''?>
+
+      <methodCall>
+
+      <methodName>Auth.login</methodName>
+
+      <params>
+
+      <param>
+
+      <value><string>user</string></value>
+
+      </param>
+
+      <param>
+
+      <value><string>random</string></value>
+
+      </param>
+
+      </params>
+
+      </methodCall>
+
+'
+    headers:
+      Accept-Encoding:
+      - gzip
+      Content-Length:
+      - '214'
+      Content-Type:
+      - text/xml
+      User-Agent:
+      - Python-xmlrpc/3.6
+    method: POST
+    uri: http://another.com/xml-rpc/
+  response:
+    body:
+      string: ''
+    headers:
+      Content-Length:
+      - '0'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Sun, 31 Mar 2019 13:01:27 GMT
+      Location:
+      - https://another.com/xml-rpc/
+      Server:
+      - Apache/2.4.18 (Ubuntu)
+    status:
+      code: 301
+      message: Moved Permanently
+- request:
+    body: '<?xml version=''1.0''?>
+
+      <methodCall>
+
+      <methodName>Auth.login</methodName>
+
+      <params>
+
+      <param>
+
+      <value><string>user</string></value>
+
+      </param>
+
+      <param>
+
+      <value><string>random</string></value>
+
+      </param>
+
+      </params>
+
+      </methodCall>
+
+'
+    headers:
+      Accept-Encoding:
+      - gzip
+      Content-Length:
+      - '214'
+      Content-Type:
+      - text/xml
+      User-Agent:
+      - Python-xmlrpc/3.6
+    method: POST
+    uri: http://another.com/xml-rpc/
+  response:
+    body:
+      string: ''
+    headers:
+      Content-Length:
+      - '0'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Sun, 31 Mar 2019 13:01:27 GMT
+      Location:
+      - https://another.com/xml-rpc/
+      Server:
+      - Apache/2.4.18 (Ubuntu)
+    status:
+      code: 301
+      message: Moved Permanently
+version: 1

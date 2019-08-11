@@ -1,0 +1,8 @@
+- repo: https://github.com/ambv/black
+  rev: stable
+  hooks:
+    - id: black
+      name: black-code-formatter
+      language_version: python3.6
+      args: [-l 120, --check]
+      files: 'pytest_kiwitcms|tests|setup.py'
