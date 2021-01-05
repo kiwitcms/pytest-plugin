@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 # Copyright (c) 2019 Dmitry Dygalo <dadygalo@gmail.com>
 # Licensed under the GPLv3: https://www.gnu.org/licenses/gpl.html
-import configparser
-import os
+# pylint: disable=unused-argument, no-self-use
 
-import attr
+
 import pytest
+from tcms_api.plugin_helpers import Backend
 
 DEFAULT_CONFIG_PATH = "~/.tcms.conf"
+
+backend = Backend(prefix='[pytest]')
 
 
 def pytest_addoption(parser):
@@ -19,42 +21,40 @@ def pytest_addoption(parser):
 
 def pytest_configure(config):
     if config.getoption("--kiwitcms"):
-        config_manager = ConfigManager(config)
         config.pluginmanager.register(
-            Plugin(
-                api_url=config_manager.get_option("url", "TCMS_API_URL"),
-                username=config_manager.get_option("username", "TCMS_USERNAME"),
-                password=config_manager.get_option("password", "TCMS_PASSWORD"),
-            ),
+            KiwiTCMSPlugin(),
             name="pytest-kiwitcms",
         )
 
 
-def is_not_none(instance, attribute, value):  # pylint: disable=unused-argument
-    if not value:
-        pytest.exit(msg=f"Option {attribute.name} is empty", returncode=1)
+class KiwiTCMSPlugin:
+    test_execution_id = 0
+    status_id = 0
+    comment = ''
 
+    def pytest_runtestloop(self, session):
+        backend.configure()
 
-@attr.s(hash=True)
-class Plugin:  # pylint: disable=too-few-public-methods
-    api_url = attr.ib(type=str, validator=is_not_none)
-    username = attr.ib(type=str, validator=is_not_none)
-    password = attr.ib(type=str, validator=is_not_none)
+    def pytest_runtest_logstart(self, nodeid, location):
+        test_case, _ = backend.test_case_get_or_create(nodeid)
+        backend.add_test_case_to_plan(test_case['id'], backend.plan_id)
+        self.test_execution_id = backend.add_test_case_to_run(test_case['id'], backend.run_id)
 
+    @pytest.hookimpl(hookwrapper=True)
+    def pytest_report_teststatus(self, report, config):
+        yield
+        if report.when == 'teardown':
+            if report.outcome == 'passed':
+                self.status_id = backend.get_status_id('PASSED')
+            elif report.outcome == 'failed':
+                self.status_id = backend.get_status_id('FAILED')
+            elif report.outcome == 'skipped':
+                self.status_id = backend.get_status_id('WAIVED')
 
-@attr.s
-class ConfigManager:  # pylint: disable=too-few-public-methods
-    """Helper for configuration parsing."""
+    def pytest_runtest_logfinish(self, nodeid, location):
+        backend.update_test_execution(self.test_execution_id, self.status_id, self.comment)
 
-    pytest_config = attr.ib()
-    config_file = attr.ib(init=False)
-
-    def __attrs_post_init__(self):
-        self.config_file = configparser.ConfigParser()
-        self.config_file.read(os.path.expanduser(DEFAULT_CONFIG_PATH))
-
-    def get_option(self, config_name, envvar):
-        try:
-            return self.config_file["tcms"][config_name]
-        except KeyError:
-            return os.getenv(envvar)
+    @pytest.hookimpl(hookwrapper=True)
+    def pytest_terminal_summary(self, terminalreporter, exitstatus, config):
+        yield
+        backend.finish_test_run()
