@@ -69,13 +69,15 @@ the coverage at least stays the same before you submit a pull request.
 License
 -------
 
-Distributed under the terms of the `GNU GPL v3.0`_ license, "kiwitcms-pytest-plugin" is free and open source software
+Distributed under the terms of the `GNU GPL v3.0`_ license,
+"kiwitcms-pytest-plugin" is free and open source software
 
 
 Issues
 ------
 
-If you encounter any problems, please `file an issue`_ along with a detailed description.
+If you encounter any problems,
+please `file an issue`_ along with a detailed description.
 
 .. _`GNU GPL v3.0`: http://www.gnu.org/licenses/gpl-3.0.txt
 .. _`file an issue`: https://github.com/kiwitcms/pytest-plugin/issues
