@@ -77,6 +77,7 @@ def test_empty_variable(testdir):
     result.stderr.fnmatch_lines(["Exit: Option api_url is empty"])
     assert result.ret == 1
 
+
 def test_kiwitcms_pytest(testdir):
     testdir.makepyfile(
         """
