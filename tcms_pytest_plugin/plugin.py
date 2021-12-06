@@ -28,7 +28,7 @@ def pytest_configure(config):
 
 
 class KiwiTCMSPlugin:
-    test_execution_id = 0
+    executions = []
     status_id = 0
     comment = ''
 
@@ -38,7 +38,7 @@ class KiwiTCMSPlugin:
     def pytest_runtest_logstart(self, nodeid, location):
         test_case, _ = backend.test_case_get_or_create(nodeid)
         backend.add_test_case_to_plan(test_case['id'], backend.plan_id)
-        self.test_execution_id = backend.add_test_case_to_run(test_case['id'], backend.run_id)
+        self.executions = backend.add_test_case_to_run(test_case['id'], backend.run_id)
 
     @pytest.hookimpl(hookwrapper=True)
     def pytest_report_teststatus(self, report, config):
@@ -52,7 +52,8 @@ class KiwiTCMSPlugin:
                 self.status_id = backend.get_status_id('WAIVED')
 
     def pytest_runtest_logfinish(self, nodeid, location):
-        backend.update_test_execution(self.test_execution_id, self.status_id, self.comment)
+        for execution in self.executions:
+            backend.update_test_execution(execution["id"], self.status_id, self.comment)
 
     @pytest.hookimpl(hookwrapper=True)
     def pytest_terminal_summary(self, terminalreporter, exitstatus, config):
