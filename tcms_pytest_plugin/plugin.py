@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 # Copyright (c) 2019 Dmitry Dygalo <dadygalo@gmail.com>
+# Copyright (c) 2021 Bryan Mutai <mutaiwork@gmail.com>
+# Copyright (c) 2021 Alexander Todorov <atodorov@otb.bg>
+#
 # Licensed under the GPLv3: https://www.gnu.org/licenses/gpl.html
+#
 # pylint: disable=unused-argument, no-self-use
 
 
