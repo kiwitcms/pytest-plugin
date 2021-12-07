@@ -11,8 +11,6 @@
 import pytest
 from tcms_api.plugin_helpers import Backend
 
-DEFAULT_CONFIG_PATH = "~/.tcms.conf"
-
 backend = Backend(prefix='[pytest]')
 
 
