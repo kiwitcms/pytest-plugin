@@ -25,7 +25,7 @@ def pytest_configure(config):
     if config.getoption("--kiwitcms"):
         config.pluginmanager.register(
             KiwiTCMSPlugin(),
-            name="pytest-kiwitcms",
+            name="kiwitcms",
         )
 
 
