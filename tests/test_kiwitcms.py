@@ -70,7 +70,7 @@ def test_empty_variable(testdir):
     testdir.makepyfile(
         """
         def test_empty_variable(pytestconfig):
-            plugin = pytestconfig.pluginmanager.get_plugin("pytest-kiwitcms")
+            plugin = pytestconfig.pluginmanager.get_plugin("kiwitcms")
         """
     )
     result = testdir.runpytest("--kiwitcms", "-v")
