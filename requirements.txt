@@ -1,2 +1,2 @@
 pytest
-tcms-api==11.1
+tcms-api==11.2
