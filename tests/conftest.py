@@ -2,7 +2,7 @@
 # Licensed under the GPLv3: https://www.gnu.org/licenses/gpl.html
 import pytest
 
-pytest_plugins = ['pytester']  # pylint: disable=invalid-name
+pytest_plugins = ["pytester"]  # pylint: disable=invalid-name
 
 
 DEFAULT_CONFIG_CONTENT = """
