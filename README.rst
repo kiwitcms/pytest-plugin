@@ -10,14 +10,6 @@ kiwitcms-pytest-plugin
     :target: https://pypi.org/project/kiwitcms-pytest-plugin
     :alt: Python versions
 
-.. image:: https://travis-ci.org/kiwitcms/pytest-plugin.svg?branch=master
-    :target: https://travis-ci.org/kiwitcms/pytest-plugin
-    :alt: See Build Status on Travis CI
-
-.. image:: https://coveralls.io/repos/github/kiwitcms/pytest-plugin/badge.svg?branch=master
-    :target: https://coveralls.io/github/kiwitcms/pytest-plugin?branch=master
-    :alt: Code coverage
-
 .. image:: https://tidelift.com/badges/package/pypi/kiwitcms
     :target: https://tidelift.com/subscription/pkg/pypi-kiwitcms?utm_source=pypi-kiwitcms&utm_medium=github&utm_campaign=readme
     :alt: Tidelift
@@ -31,21 +23,7 @@ kiwitcms-pytest-plugin
     :alt: Kiwi TCMS on Twitter
 
 
-Pytest plugin for Kiwi TCMS
-
-----
-
-
-Features
---------
-
-* TODO
-
-
-Requirements
-------------
-
-* TODO
+This is a `pytest`_ plugin for `Kiwi TCMS <http://kiwitcms.org>`_.
 
 
 Installation
@@ -56,21 +34,44 @@ You can install "kiwitcms-pytest-plugin" via `pip`_ from `PyPI`_::
     $ pip install kiwitcms-pytest-plugin
 
 
+Configuration and environment
+-----------------------------
+
+Minimal config file `~/.tcms.conf`::
+
+    [tcms]
+    url = https://tcms.server/xml-rpc/
+    username = your-username
+    password = your-password
+
+
+For more info see `tcms-api docs <https://tcms-api.readthedocs.io>`_.
+Further documentation and behavior specification can be found
+`here <https://tcms-api.readthedocs.io/en/latest/modules/tcms_api.plugin_helpers.html>`_.
+
+
 Usage
 -----
 
-* TODO
+::
 
-Contributing
-------------
-Contributions are very welcome. Tests can be run with `tox`_, please ensure
-the coverage at least stays the same before you submit a pull request.
+    # define environment variables
+    pytest -p tcms_pytest_plugin --kiwitcms
+
 
 License
 -------
 
 Distributed under the terms of the `GNU GPL v3.0`_ license,
 "kiwitcms-pytest-plugin" is free and open source software
+
+
+Authors
+-------
+
+- `Dmitry Dygalo <https://github.com/Stranger6667>`_
+- `Bryan Mutai <https://github.com/brymut>`_
+- `Alex Todorov <https://github.com/atodorov>`_
 
 
 Issues
@@ -82,6 +83,5 @@ please `file an issue`_ along with a detailed description.
 .. _`GNU GPL v3.0`: http://www.gnu.org/licenses/gpl-3.0.txt
 .. _`file an issue`: https://github.com/kiwitcms/pytest-plugin/issues
 .. _`pytest`: https://github.com/pytest-dev/pytest
-.. _`tox`: https://tox.readthedocs.io/en/latest/
 .. _`pip`: https://pypi.org/project/pip/
 .. _`PyPI`: https://pypi.org/project
