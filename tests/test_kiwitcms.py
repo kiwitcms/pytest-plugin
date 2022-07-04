@@ -8,12 +8,15 @@ import pytest
 def test_should_pass_when_assertion_passes():
     assert 1 == 1
 
+
 def test_should_fail_when_assertion_fails():
     assert 1 == 2
+
 
 @pytest.mark.skip("We've decided not to test this")
 def test_should_skip_if_marked_as_such():
     assert 1 == 1
+
 
 def test_should_error_with_non_existing_fixture(non_existing):
     assert 1 == ""

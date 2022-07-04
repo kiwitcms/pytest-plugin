@@ -6,17 +6,21 @@
 # Copyright (c) 2021 Alexander Todorov <atodorov@otb.bg>
 #
 # Licensed under the GPLv3: https://www.gnu.org/licenses/gpl.html
-
+import os
 from setuptools import setup
 
 
 def get_version():
-    version_py_path = os.path.join('tcms_pytest_plugin', 'version.py')
+    version_py_path = os.path.join("tcms_pytest_plugin", "version.py")
     with open(version_py_path, encoding="utf-8") as version_file:
         version = version_file.read()
-        return version.replace(
-            ' ', ''
-        ).replace('__version__=', '').strip().strip("'").strip('"')
+        return (
+            version.replace(" ", "")
+            .replace("__version__=", "")
+            .strip()
+            .strip("'")
+            .strip('"')
+        )
 
 
 with open("README.rst", encoding="utf-8") as readme:

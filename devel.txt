@@ -1,6 +1,7 @@
 -r requirements.txt
 
 doc8
+black
 flake8
 pylint_django
 twine
