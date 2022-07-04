@@ -3,7 +3,7 @@
 #
 # Copyright (c) 2019 Dmitry Dygalo <dadygalo@gmail.com>
 # Copyright (c) 2021 Bryan Mutai <mutaiwork@gmail.com>
-# Copyright (c) 2021 Alexander Todorov <atodorov@otb.bg>
+# Copyright (c) 2021-2022 Alexander Todorov <atodorov@otb.bg>
 #
 # Licensed under the GPLv3: https://www.gnu.org/licenses/gpl.html
 import os
@@ -32,8 +32,6 @@ with open("requirements.txt", encoding="utf-8") as requirements:
 setup(
     name="kiwitcms-pytest-plugin",
     version=get_version(),
-    author="Dmitry Dygalo",
-    author_email="dadygalo@gmail.com",
     maintainer="Kiwi TCMS",
     maintainer_email="info@kiwitcms.org",
     url="https://github.com/kiwitcms/pytest-plugin",
