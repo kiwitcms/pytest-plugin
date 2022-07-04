@@ -9,12 +9,25 @@
 
 from setuptools import setup
 
-README = open("README.rst").read()
-REQUIREMENTS = open("requirements.txt").readlines()
+
+def get_version():
+    version_py_path = os.path.join('tcms_pytest_plugin', 'version.py')
+    with open(version_py_path, encoding="utf-8") as version_file:
+        version = version_file.read()
+        return version.replace(
+            ' ', ''
+        ).replace('__version__=', '').strip().strip("'").strip('"')
+
+
+with open("README.rst", encoding="utf-8") as readme:
+    README = readme.read()
+
+with open("requirements.txt", encoding="utf-8") as requirements:
+    REQUIREMENTS = requirements.readlines()
 
 setup(
     name="kiwitcms-pytest-plugin",
-    version="0.1.0",
+    version=get_version(),
     author="Dmitry Dygalo",
     author_email="dadygalo@gmail.com",
     maintainer="Kiwi TCMS",
