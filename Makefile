@@ -8,7 +8,7 @@ flake8:
 
 .PHONY: pylint
 pylint:
-	pylint -d missing-docstring tcms_pytest_plugin/ tests/
+	pylint --load-plugins=pylint.extensions.no_self_use -d missing-docstring tcms_pytest_plugin/ tests/
 
 .PHONY: test
 test:
