@@ -12,7 +12,7 @@ pylint:
 
 .PHONY: test
 test:
-	pytest --kiwitcms
+	PYTHONPATH=. pytest -p tcms_pytest_plugin --kiwitcms tests/
 
 .PHONY: check-build
 check-build:
