@@ -26,7 +26,7 @@ def pytest_addoption(parser):
 def pytest_configure(config):
     if config.getoption("--kiwitcms"):
         config.pluginmanager.register(
-            KiwiTCMSPlugin(),
+            KiwiTCMSPlugin(config.getoption("--verbose")),
             name="kiwitcms",
         )
 
@@ -37,11 +37,13 @@ class Backend(plugin_helpers.Backend):
 
 
 class KiwiTCMSPlugin:
-    backend = Backend(prefix="[pytest]")
     executions = []
     status_id = 0
     status_weight = 0
     comment = ""
+
+    def __init__(self, verbose=False):
+        self.backend = Backend(prefix="[pytest]", verbose=verbose)
 
     def pytest_runtestloop(self, session):
         self.backend.configure()
