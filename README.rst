@@ -59,6 +59,17 @@ Usage
     pytest -p tcms_pytest_plugin --kiwitcms
 
 
+Changelog
+---------
+
+v0.1.0 (05 Jul 2022)
+~~~~~~~~~~~~~~~~~~~~
+
+- First release on PyPI
+- Based on tcms-api v11.3
+- Compatible with Kiwi TCMS v11.3 or later
+
+
 License
 -------
 
