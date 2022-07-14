@@ -43,6 +43,7 @@ jobs:
       fail-fast: false
       matrix:
         python-version: [3.8]
+        kiwitcms-url: [public.tenant.kiwitcms.org, tcms.kiwitcms.org]
 
     steps:
       - name: Check out code
@@ -61,13 +62,13 @@ jobs:
       - name: Prepare for integration test
         run: |
           echo "[tcms]" > ~/.tcms.conf
-          echo "url = https://tcms.kiwitcms.org/xml-rpc/" >> ~/.tcms.conf
+          echo "url = https://${{ matrix.kiwitcms-url }}/xml-rpc/" >> ~/.tcms.conf
           echo "username = kiwitcms-bot" >> ~/.tcms.conf
           echo "password = ${{ secrets.TCMS_PASSWORD }}" >> ~/.tcms.conf
           sudo cp .ssl/*.pem /usr/lib/ssl/certs/
           sudo update-ca-certificates --fresh
 
-      - name: Execute tests
+      - name: Execute tests & post results to ${{ matrix.kiwitcms-url }}
         run: |
           export TCMS_PRODUCT=$GITHUB_REPOSITORY
           # branch name or pull/123
