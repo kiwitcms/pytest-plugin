@@ -62,6 +62,15 @@ Usage
 Changelog
 ---------
 
+v12.7 (11 Dec 2023)
+~~~~~~~~~~~~~~~~~~~
+
+- Follow versioning of other plugins for Kiwi TCMS
+- Update tcms-api from 11.3 to 12.7
+- Build and test with Python 3.11
+- Add code scanning with CodeQL
+
+
 v0.1.0 (05 Jul 2022)
 ~~~~~~~~~~~~~~~~~~~~
 
