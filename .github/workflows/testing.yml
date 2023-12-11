@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.8]
+        python-version: [3.8, 3.11]
         make-command: [doc8, flake8, pylint, check-build]
 
     steps:
@@ -42,7 +42,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.8]
+        python-version: [3.8, 3.11]
         kiwitcms-url: [public.tenant.kiwitcms.org, tcms.kiwitcms.org]
 
     steps:
