@@ -46,7 +46,11 @@ def _simulate_logstart(plugin, nodeid):
 
 def test_docstring_is_sent_as_test_case_text(plugin):
     """Test case body must be set from the function docstring when present."""
-    items = [_make_item("tests/test_foo.py::test_intent", "Verify the widget resets on power-up.")]
+    items = [
+        _make_item(
+            "tests/test_foo.py::test_intent", "Verify the widget resets on power-up."
+        )
+    ]
     _simulate_collection(plugin, items)
     _simulate_logstart(plugin, "tests/test_foo.py::test_intent")
 
@@ -85,7 +89,9 @@ def test_multiline_docstring_is_cleandoc_normalised(plugin):
     _simulate_collection(plugin, items)
     _simulate_logstart(plugin, "tests/test_foo.py::test_multiline")
 
-    expected = "Verify the widget resets on power-up.\n\nPrecondition: widget is powered."
+    expected = (
+        "Verify the widget resets on power-up.\n\nPrecondition: widget is powered."
+    )
     plugin.backend.update_test_case_text.assert_called_once_with(99, expected)
 
 
