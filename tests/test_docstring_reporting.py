@@ -108,14 +108,17 @@ def test_item_without_function_attribute_is_skipped(plugin):
 
 
 def test_docstring_not_sent_for_different_nodeid(plugin):
-    """Docstring harvested for test A must not be sent when test B runs."""
+    """Docstring for test_a must be sent when test_a runs, but not when test_b runs."""
     item_a = _make_item("tests/test_foo.py::test_a", "Intention A")
     item_b = _make_item("tests/test_foo.py::test_b", None)
-    item_b.function.__doc__ = None
     _simulate_collection(plugin, [item_a, item_b])
 
-    _simulate_logstart(plugin, "tests/test_foo.py::test_b")
+    _simulate_logstart(plugin, "tests/test_foo.py::test_a")
+    plugin.backend.update_test_case_text.assert_called_once_with(99, "Intention A")
 
+    plugin.backend.update_test_case_text.reset_mock()
+
+    _simulate_logstart(plugin, "tests/test_foo.py::test_b")
     plugin.backend.update_test_case_text.assert_not_called()
 
 
