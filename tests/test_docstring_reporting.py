@@ -17,7 +17,7 @@ def plugin():
         instance = MagicMock()
         instance.plan_id = 1
         instance.run_id = 1
-        instance.test_case_get_or_create.return_value = ({"id": 99}, True)
+        instance.test_case_get_or_create.return_value = ({"id": 99, "text": None}, True)
         instance.add_test_case_to_run.return_value = [{"id": 42}]
         mock_backend_cls.return_value = instance
 
