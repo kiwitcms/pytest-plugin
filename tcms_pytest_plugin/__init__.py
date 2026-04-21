@@ -68,14 +68,13 @@ class KiwiTCMSPlugin:
         self.comment = ""
 
         test_case, _ = self.backend.test_case_get_or_create(nodeid)
+        docstring = self._docstrings.get(nodeid)
+        if docstring != test_case["text"]:
+            self.backend.update_test_case_text(test_case["id"], docstring)
         self.backend.add_test_case_to_plan(test_case["id"], self.backend.plan_id)
         self.executions = self.backend.add_test_case_to_run(
             test_case["id"], self.backend.run_id
         )
-
-        docstring = self._docstrings.get(nodeid)
-        if docstring != test_case["text"]:
-            self.backend.update_test_case_text(test_case["id"], docstring)
 
     @pytest.hookimpl(hookwrapper=True)
     def pytest_report_teststatus(self, report, config):
