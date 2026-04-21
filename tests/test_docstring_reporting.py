@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (c) 2024
+# Copyright (c) 2026
 # Licensed under the GPLv3: https://www.gnu.org/licenses/gpl.html
 #
 # pylint: disable=redefined-outer-name
