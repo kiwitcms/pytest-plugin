@@ -74,7 +74,7 @@ class KiwiTCMSPlugin:
         )
 
         docstring = self._docstrings.get(nodeid)
-        if docstring:
+        if docstring != test_case['text']:
             self.backend.update_test_case_text(test_case["id"], docstring)
 
     @pytest.hookimpl(hookwrapper=True)
