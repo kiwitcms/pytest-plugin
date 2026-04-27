@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (c) 2026
+# Copyright (c) 2026 Carlos Martinez <jcmartinez2129@gmail.com>
 # Licensed under the GPLv3: https://www.gnu.org/licenses/gpl.html
 #
 # pylint: disable=redefined-outer-name
