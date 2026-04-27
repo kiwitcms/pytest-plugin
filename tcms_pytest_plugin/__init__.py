@@ -8,6 +8,8 @@
 # pylint: disable=unused-argument, no-self-use
 
 
+import inspect
+
 import pytest
 from tcms_api import plugin_helpers
 
@@ -35,6 +37,10 @@ class Backend(plugin_helpers.Backend):
     name = "kiwitcms-pytest-plugin"
     version = __version__
 
+    def update_test_case_text(self, test_case_id, text):
+        """Set the body text of a TestCase from its docstring."""
+        self.rpc.TestCase.update(test_case_id, {"text": text})
+
 
 class KiwiTCMSPlugin:
     executions = []
@@ -44,6 +50,15 @@ class KiwiTCMSPlugin:
 
     def __init__(self, verbose=False):
         self.backend = Backend(prefix="[pytest]", verbose=verbose)
+        self._docstrings = {}
+
+    def pytest_collection_finish(self, session):
+        for item in session.items:
+            if not hasattr(item, "function"):
+                continue
+            doc = getattr(item.function, "__doc__", None)
+            if doc:
+                self._docstrings[item.nodeid] = inspect.cleandoc(doc)
 
     def pytest_runtestloop(self, session):
         self.backend.configure()
@@ -53,6 +68,9 @@ class KiwiTCMSPlugin:
         self.comment = ""
 
         test_case, _ = self.backend.test_case_get_or_create(nodeid)
+        docstring = self._docstrings.get(nodeid)
+        if docstring != test_case["text"]:
+            self.backend.update_test_case_text(test_case["id"], docstring)
         self.backend.add_test_case_to_plan(test_case["id"], self.backend.plan_id)
         self.executions = self.backend.add_test_case_to_run(
             test_case["id"], self.backend.run_id

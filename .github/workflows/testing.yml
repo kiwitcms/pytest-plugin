@@ -80,4 +80,4 @@ jobs:
           make test | tee -a results.log
 
           # make sure results are as expected
-          tail -n1 results.log | grep "1 failed, 1 passed, 1 skipped, 1 error"
+          tail -n1 results.log | grep "1 failed, 8 passed, 1 skipped, 1 error"
