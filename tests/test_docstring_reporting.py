@@ -114,11 +114,14 @@ def test_docstring_not_sent_for_different_nodeid(plugin):
     _simulate_collection(plugin, [item_a, item_b])
 
     _simulate_logstart(plugin, "tests/test_foo.py::test_a")
+    plugin.backend.test_case_get_or_create.assert_called_once_with("tests/test_foo.py::test_a")
     plugin.backend.update_test_case_text.assert_called_once_with(99, "Intention A")
 
+    plugin.backend.test_case_get_or_create.reset_mock()
     plugin.backend.update_test_case_text.reset_mock()
 
     _simulate_logstart(plugin, "tests/test_foo.py::test_b")
+    plugin.backend.test_case_get_or_create.assert_called_once_with("tests/test_foo.py::test_b")
     plugin.backend.update_test_case_text.assert_not_called()
 
 
