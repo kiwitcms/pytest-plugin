@@ -62,6 +62,14 @@ Usage
 Changelog
 ---------
 
+v15.4 (27 Apr 2026)
+~~~~~~~~~~~~~~~~~~~
+
+- Publish test function docstring as TestCase.text (Carlos Martinez)
+- Update tcms-api requirement from >=12.8.1 to >=15.0
+- Drop Python 3.8 from test matrix
+
+
 v12.8.1 (22 Dec 2023)
 ~~~~~~~~~~~~~~~~~~~~~
 
