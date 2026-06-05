@@ -3,7 +3,7 @@
 #
 # Copyright (c) 2019 Dmitry Dygalo <dadygalo@gmail.com>
 # Copyright (c) 2021 Bryan Mutai <mutaiwork@gmail.com>
-# Copyright (c) 2021-2022 Alexander Todorov <atodorov@otb.bg>
+# Copyright (c) 2021-2026 Alexander Todorov <atodorov@otb.bg>
 #
 # Licensed under the GPLv3: https://www.gnu.org/licenses/gpl.html
 import os
@@ -50,10 +50,7 @@ setup(
         "Operating System :: POSIX",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
         "Programming Language :: Python :: Implementation :: CPython",
         "Topic :: Software Development",
         "Topic :: Software Development :: Libraries :: Python Modules",
