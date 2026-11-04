@@ -11,7 +11,7 @@ on:
 jobs:
   static_analysis:
     name: ${{ matrix.make-command }} / Py${{ matrix.python-version }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     strategy:
       fail-fast: false
       matrix:
@@ -38,7 +38,7 @@ jobs:
 
   test:
     name: test / Py${{ matrix.python-version }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     strategy:
       fail-fast: false
       matrix:
